@@ -1,0 +1,12 @@
+0.0.0.0:2017
+tls off
+gzip
+prometheus
+log / /var/log/caddy/repo.log "{remote} {when} {method} {uri} {proto} {status} {size} {>User-Agent} {latency}" {
+   	rotate_size 50
+	rotate_age  90
+	rotate_keep 20
+	rotate_compress
+}
+root /pkg/
+browse / /tmp/index.html
